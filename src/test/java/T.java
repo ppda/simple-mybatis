@@ -10,6 +10,7 @@ public class T {
         list.add(3);
         list.add(4);
         list.add(5);
+        list.add(6);
 
         List<Integer> integers = list.subList(0, 5);
         System.out.println(integers);
