@@ -11,6 +11,7 @@ public class T {
         list.add(4);
         list.add(5);
         list.add(6);
+        list.add(7);
 
         List<Integer> integers = list.subList(0, 5);
         System.out.println(integers);
