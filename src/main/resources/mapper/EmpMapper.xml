@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.mapper.EmpMapper">
+    <select id="selectEmp" resultType="com.mybatis.entity.EmpDTO">
+      select * from emp where id = #{id}
+    </select>
+
+    <update id="mutilUpdate">
+        <foreach collection="emps" item="emp"
+                 index="index" open="" close="" separator=";">
+            update emp
+            <set>
+                name = #{emp.name},
+                <if test="emp.title != null">
+                    title = #{emp.title},
+                </if>
+                <if test="emp.age != null">
+                    age = #{emp.age}
+                </if>
+            </set>
+            where id = #{emp.id}
+        </foreach>
+    </update>
+    <update id="updateEmp">
+            update emp
+            <set>
+                name = #{name},
+                <if test="title != null">
+                    title = #{title},
+                </if>
+                <if test="age != null">
+                    age = #{age},
+                </if>
+            </set>
+            where id = #{id}
+    </update>
+
+</mapper>
